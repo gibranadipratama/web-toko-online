@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Toko Sepatu Online</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <style>
+        #product>.card{
+            width: 10rem;
+        }
+        .card:hover {
+            border: 1px solid black;
+        }
+
+            /* Menghilangkan scrollbar yang mengganggu tapi tetap bisa di-scroll */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+
+        /* Memastikan card tidak mengecil saat di-flex */
+        .flex-nowrap .col-10, 
+        .flex-nowrap .col-lg-2 {
+            flex: 0 0 auto;
+        }
+
+        /* Menyembunyikan scrollbar agar tampilan lebih bersih (opsional) */
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none; /* Untuk Chrome, Safari, dan Opera */
+        }
+        .custom-scrollbar {
+            -ms-overflow-style: none;  /* Untuk IE dan Edge */
+            scrollbar-width: none;  /* Untuk Firefox */
+            scroll-behavior: auto; /* Dibuat auto agar JS bisa mengontrolnya dengan mulus */
+        }
+
+        /* Mengatur container agar berfungsi seperti carousel native */
+    .css-carousel {
+        overflow-x: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        scroll-snap-type: x mandatory; /* Membuat scroll berhenti pas di setiap card */
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;  /* Sembunyikan scrollbar IE dan Edge */
+        scrollbar-width: none;  /* Sembunyikan scrollbar Firefox */
+    }
+    
+    /* Sembunyikan scrollbar untuk Chrome, Safari, dan Opera */
+    .css-carousel::-webkit-scrollbar {
+        display: none; 
+    }
+
+    /* Mengatur titik henti (snap) pada masing-masing card */
+    .snap-item {
+        scroll-snap-align: start;
+    }
+    </style>
+    </head>
+    <body>
+        <!-- Section Header Start -->
+
+        <!-- header image -->
+        <div class="d-flex justify-content-center align-items-center" style="background-color: #220878;">
+            <img src="/Assets/header-web-toko-new.jpg" alt="">
+        </div>
+        <!-- header image -->
+        <!-- Section Search Start -->
+        <header style="position: sticky; top: 0; z-index: 1000;">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid d-flex align-items-center">
+                    <img src="/Assets/Icon/move.svg" alt="Logo" style="width: 40px; height: 40px; margin: 10px 10px;">
+                    <h1 style="flex: 1; font-size: 32px;" >
+                        <a class="navbar-brand text-center text-black fw-bold" href="/index.html" >KALAKAKI</a>
+                    </h1>
+
+                    <div class="d-flex justify-content-center align-items-center" style="flex: 2;">
+                        <form class="d-flex" role="search" style="width: 100%; max-width: 700px;">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-dark" type="submit"><img src="/Assets/Icon/search.svg" alt="search"></button>
+                        </form>
+                    </div>
+
+                    <div style="flex: 1;" class="d-flex justify-content-end">
+                        <div>
+                            <a href="" class="btn bg-light rounded-circle me-2">
+                                <img src="/Assets/Icon/message-square.svg" alt="message" style="width: 20px; height: 20px;">
+                            </a>
+                            <a href="" class="btn bg-light rounded-circle">
+                                <img src="/Assets/Icon/shopping-cart.svg" alt="shopping cart" style="width: 20px; height: 20px;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Section Search End -->
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-top py-0">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav nav-underline">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/index.html">TERBARU</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html">TERLARIS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/index.html">EKSKLUSIF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/components/kategori-pria.html">PRIA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">WANITA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ANAK-ANAK</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Navbar -->
+        <!-- Section Header end -->
+    
+
+        <!-- Carousel Start -->
+        <section class="mb-3">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+
+                    <!-- First Slide -->
+
+                    <div class="carousel-item active">
+                        <a href="">
+                            <img src="/Assets/carousel/P01.png" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="...">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                            <h5><a href="" class="text-white" style="text-decoration: none;">NEW BALANCE</a></h5>
+                            <p>DISCOUNT <span class="text-decoration-line-through">Rp. 1.500.000</span> Rp. 1.050.000</p>
+                        </div>
+                    </div>
+
+                    <!-- Second Slide -->
+
+                    <div class="carousel-item">
+                        <a href="">
+                            <img src="/Assets/carousel/P02.png" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="...">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                            <h5><a href="" class="text-white" style="text-decoration: none;">NIKE</a></h5>
+                            <p>DISCOUNT <span class="text-decoration-line-through">Rp. 2.500.000</span> Rp. 2.000.000</p>
+                        </div>
+                    </div>
+
+                    <!-- Third Slide -->
+
+                    <div class="carousel-item">
+                        <a href="">
+                            <img src="/Assets/carousel/P03.png" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="...">
+                        </a>
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+                            <h5><a href="" class="text-white" style="text-decoration: none;">ADIDAS</a></h5>
+                            <p>DISCOUNT <span class="text-decoration-line-through">Rp. 3.000.000</span> Rp. 1.800.000</p>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <!-- Carousel End -->
+
+        <!-- Products Section -->
+        <!-- tes -->
+        <section id="products" class="mx-2 mb-5">
+            <div class="container-fluid">
+                <h3 class="mx-2 mb-3" style="text-decoration: underline;">Terbaru</h3>
+                
+                <div class="row flex-nowrap overflow-auto pb-3 custom-scrollbar">
+                    
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-NEW-BALANCE-FFSSBNEWA-NEWMR530SGD-White.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">ADIDAS</small>
+                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
+                                <p class="card-text mb-1 small text-secondary">Pink</p>
+                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- tes -->
+        
+        <!-- nyoba -->
+        <section id="products" class="mx-2 mb-5">
+            <div class="container-fluid">
+                <h3 class="mx-2 mb-3" style="text-decoration: underline;">Terbaru</h3>
+                
+                <div id="autoScrollContainer" class="row flex-nowrap overflow-auto pb-3 custom-scrollbar">
+                    
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-NEW-BALANCE-FFSSBNEWA-NEWMR530SGD-White.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">ADIDAS</small>
+                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
+                                <p class="card-text mb-1 small text-secondary">Pink</p>
+                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                            <div class="card-body border-top">
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- nyoba -->
+
+
+        <section id="products" class="mx-2 mb-5">
+    <div class="container-fluid">
+        <h3 class="mx-2 mb-3" style="text-decoration: underline;">Terbaru</h3>
+        
+        <div class="row css-carousel pb-3">
+            
+            <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3 snap-item">
+                <div class="card h-100 shadow-sm">
+                    <img src="/Assets/Pria/01-NEW-BALANCE-FFSSBNEWA-NEWMR530SGD-White.webp" class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <small class="text-muted fw-bold">ADIDAS</small>
+                        <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
+                        <p class="card-text mb-1 small text-secondary">Pink</p>
+                        <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
+                        <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3 snap-item">
+                <div class="card h-100 shadow-sm">
+                    <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <small class="text-muted fw-bold">NIKE</small>
+                        <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                        <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                        <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                        <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3 snap-item">
+                <div class="card h-100 shadow-sm">
+                    <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <small class="text-muted fw-bold">NIKE</small>
+                        <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                        <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                        <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                        <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3 snap-item">
+                <div class="card h-100 shadow-sm">
+                    <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <small class="text-muted fw-bold">NIKE</small>
+                        <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                        <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                        <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                        <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3 snap-item">
+                <div class="card h-100 shadow-sm">
+                    <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <small class="text-muted fw-bold">NIKE</small>
+                        <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                        <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                        <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                        <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 col-sm-6 col-md-4 col-lg-2 mb-3 snap-item">
+                <div class="card h-100 shadow-sm">
+                    <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+                    <div class="card-body border-top">
+                        <small class="text-muted fw-bold">NIKE</small>
+                        <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
+                        <p class="card-text mb-1 small text-secondary">Black/Blue</p>
+                        <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
+                        <a href="#" class="btn btn-sm btn-outline-primary w-100">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+        <!-- Section footer Start -->
+        <section id="footer" class="bg-light mt-5 mb-2">
+            <div class="container" style="height: 200px;">
+                <div class="row">
+                    <div class="col-md-3 ">
+                        <h5>Kontak Kami</h5>
+                        <h6>Jam Operasional</h6>
+                        <div class="text-underline">Senin - Minggu: 24 Jam</div>
+                        <h6>Layanan Pelanggan</h6>
+                        <div>Email: kalakaki@gmail.com</div>
+                        <div>Whatsapp: 081234567890</div>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Tentang</h5>
+                        <ul class="nav-underline" style="list-style: none; padding-left: 0;">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Tentang Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Kebijakan Privasi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Syarat dan Ketentuan</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Layanan Pelanggan</h5>
+                        <ul class="nav-underline" style="list-style: none; padding-left: 0;">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Kebijakan Pengembalian</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Kontak Kami</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Lokasi Kami</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Social Media</h5>
+                        <ul class="nav-underline" style="list-style: none; padding-left: 0;">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Facebook</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Instagram</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar bg-body-tertiary border-top border-bottom mt-3">
+                <div class="container">
+                    <img src="/Assets/Icon/move.svg" alt="Logo" style="width: 40px; height: 40px; margin: 10px 10px;">
+                    <h1 style="flex: 1; font-size: 32px;" >
+                        <a class="navbar-brand text-center text-black fw-bold" href="#Home" >KALAKAKI</a>
+                    </h1>
+                    <p class="navbar-text">© 2026 KalaKaki. All rights reserved.</p>
+                </div>
+            </nav>
+        </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.getElementById('autoScrollContainer');
+            let isDown = false;
+            let isHovered = false;
+            
+            // --- LOGIKA AUTO SCROLL ---
+            function autoScroll() {
+                // Jika tidak sedang di-hover dan tidak sedang di-drag/scroll manual
+                if (!isHovered && !isDown) {
+                    container.scrollLeft += 1; // Ubah angka 1 untuk mengatur kecepatan scroll (makin besar makin cepat)
+                    
+                    // Jika sudah sampai mentok di ujung kanan, kembali ke kiri (0)
+                    if (container.scrollLeft >= (container.scrollWidth - container.clientWidth)) {
+                        container.scrollLeft = 0;
+                    }
+                }
+                requestAnimationFrame(autoScroll); // Memanggil loop animasi
+            }
+            
+            // Mulai animasi
+            autoScroll();
+
+            // --- MENGHENTIKAN AUTO SCROLL SAAT DI INTERAKSI ---
+            // Untuk pengguna Mouse / Desktop
+            container.addEventListener('mouseenter', () => { isHovered = true; });
+            container.addEventListener('mouseleave', () => { isHovered = false; });
+            container.addEventListener('mousedown', () => { isDown = true; });
+            container.addEventListener('mouseup', () => { isDown = false; });
+
+            // Untuk pengguna Touchscreen / Mobile
+            container.addEventListener('touchstart', () => { isHovered = true; });
+            container.addEventListener('touchend', () => { 
+                setTimeout(() => { isHovered = false; }, 1000); // Beri delay sedikit sebelum jalan lagi
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
