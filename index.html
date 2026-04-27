@@ -12,7 +12,6 @@
             border: 1px solid black !important;
         }
 
-        /* invisible scroll */
         .custom-scrollbar::-webkit-scrollbar {
             display: none; /* Untuk Chrome, Safari, dan Opera */
         }
@@ -21,6 +20,140 @@
             scrollbar-width: none;  /* Untuk Firefox */
             scroll-behavior: auto;
         }
+
+        .banner-container {
+            width: 100%; 
+            max-width: 1500px; 
+            min-height: 500px;
+            background: linear-gradient(to right, #3b0a14 0%, #bd4d13 40%, #58657d 65%, #071f3a 100%);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 40px 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        /* --- BAGIAN KIRI --- */
+        .left-section {
+            width: 55%;
+            z-index: 2;
+        }
+
+        .brand-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .brand-title span {
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+        }
+
+        .steps-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-left: 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .step-text strong {
+            font-size: 20px;
+        }
+
+        /* --- BAGIAN KANAN --- */
+        .right-section {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .right-section p {
+            font-size: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .btn-pesan {
+            background-color: black;
+            color: white;
+            font-size: 24px;
+            font-weight: 900;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-pesan:hover {
+            background-color: white;
+            color: black;
+        }
+
+
+        /* Untuk Tablet / Layar Menengah (dibawah 992px) */
+        @media (max-width: 992px) {
+            .banner-container {
+                padding: 30px;
+            }
+            h1 { font-size: 30px; }
+            .btn-pesan { font-size: 20px; padding: 12px 24px; }
+        }
+
+        /* Untuk Mobile / HP (dibawah 768px) */
+        @media (max-width: 768px) {
+            .banner-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                gap: 40px;
+            }
+            
+            .left-section, .right-section {
+                width: 100%; 
+            }
+
+            h1 { font-size: 26px; }
+            
+            .steps-list {
+                align-items: center;
+            }
+            
+            .step-item {
+                text-align: left; 
+                width: fit-content;
+            }
+            
+            .step-text strong {
+                font-size: 16px;
+            }
+        }
+
     </style>
   </head>
   <body>
@@ -78,16 +211,16 @@
                                 <a class="nav-link text-black fw-bold" href="#terlaris">TERLARIS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-black fw-bold" href="/components/kategori-eksklusif.html">EKSKLUSIF</a>
+                                <a class="nav-link text-black fw-bold" href="/pages/kategori-eksklusif.html">EKSKLUSIF</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-black fw-bold" href="/components/kategori-pria.html">PRIA</a>
+                                <a class="nav-link text-black fw-bold" href="/pages/kategori-pria.html">PRIA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-black fw-bold" href="/components/kategori-wanita.html">WANITA</a>
+                                <a class="nav-link text-black fw-bold" href="/pages/kategori-wanita.html">WANITA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-black fw-bold" href="/components/kategori-anak.html">ANAK-ANAK</a>
+                                <a class="nav-link text-black fw-bold" href="/pages/kategori-anak.html">ANAK-ANAK</a>
                             </li>
                         </ul>
                     </div>
@@ -97,7 +230,7 @@
         <!-- header -->
 
         <!-- carousel -->
-        <section class="mb-4">
+        <section class="mb-1">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -106,10 +239,10 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/Assets/carousel/P01.png" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="...">
+                        <img src="/Assets/carousel/P04.png" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="...">
                         <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
-                            <h5><a href="" class="text-white text-decoration-none">NEW BALANCE</a></h5>
-                            <p>DISCOUNT <span class="text-decoration-line-through">Rp. 1.500.000</span> Rp. 1.050.000</p>
+                            <h5><a href="" class="text-white text-decoration-none">PUMA</a></h5>
+                            <p>DISCOUNT <span class="text-decoration-line-through">Rp. 1.899.000</span> Rp. 1.050.000</p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -139,108 +272,141 @@
         </section>
         <!-- carousel -->
 
+        
+
         <!-- populer picks -->
         <section class="container-fluid mb-5" style="max-width: 1200px;">
             <div class="border p-2">
                 <h3 id="terlaris" class="mb-3" style="font-family: sans-serif; scroll-margin-top: 140px;">POPULAR PICKS</h3>
                 <div class="row flex-nowrap overflow-auto pb-3 custom-scrollbar g-3">
                     
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/X1-NEW-BALANCE-FFSSBNEWA-NEWM1000FLB-Red.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">new balance</small>
+                                <h6 class="card-title text-truncate text-uppercase">1000 men's sneakers shoes - red</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Red</p>
+                                <p class="card-text mb-2"><b>Rp. 2.599.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-NIKE-FFSSBNIK5-NIK604133050-Black.webp" class="card-img-top" alt="Nike">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold">NIKE</small>
+                                <h6 class="card-title text-truncate">FX AIR MAX PLUS MEN'S SNEAKERS SHOES - BLACK</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Black</p>
+                                <p class="card-text mb-2"><b>Rp. 2.389.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-PUMA-FFSSEPMAA-PMA398846-02-Red.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">puma</small>
+                                <h6 class="card-title text-truncate text-uppercase">speedcat og unisex lifestyle shoes - red</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Red</p>
+                                <p class="card-text mb-2"><b>Rp. 1.899.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/X4-NEW-BALANCE-FFSSBNEWA-NEWU200015V-Grey.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">new balance</small>
+                                <h6 class="card-title text-truncate text-uppercase">abzorb fx 2000 sneakers shoes - neptune grey / blue oyster</h6>
+                                <p class="card-text mb-1 small text-secondary">Unisex</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Blue Oyster</p>
+                                <p class="card-text mb-2"><b>Rp. 2.899.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-VANS-FFSSBVAS5-VAS000D3HY28-BlackRev25072023.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">vans</small>
+                                <h6 class="card-title text-truncate text-uppercase">vans old skool unisex sneakers shoes - black</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Black</p>
+                                <p class="card-text mb-2"><b>Rp. 1.099.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Wanita/03-ADIDAS-FFSSBADI5-ADIIH5484-Pale-Pink.webp " class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">adidas</small>
+                                <h6 class="card-title text-truncate text-uppercase">gazelle indoor women's sneakers shoes - pink</h6>
+                                <p class="card-text mb-1 small text-secondary">Wanita</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Pink</p>
+                                <p class="card-text mb-2"><b>Rp. 2.200.000</b></p>
+                                <a href="https://www.footlocker.id/gazelle-indoor-women-s-sneakers-shoes-pink-20.html" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Wanita/01-NIKE-FFSSBNIK5-NIKFD0736100-White.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">v2k run women's sneakers shoes - summit white/metallic silver</h6>
+                                <p class="card-text mb-1 small text-secondary">Wanita</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> White</p>
+                                <p class="card-text mb-2"><b>Rp. 1.909.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Wanita/02-NIKE-F34KBNIK5-NIKDD1873112-White.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">dunk low next nature women's basketball shoes - white</h6>
+                                <p class="card-text mb-1 small text-secondary">Wanita</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> White - Pink</p>
+                                <p class="card-text mb-2"><b>Rp. 1.549.000 </b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
+
+                      <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Wanita/02-ADIDAS-FFSSBADI5-ADIIG4279-White.webp" class="card-img-top" alt="New Balance">
+                            <div class="card-body border-top d-flex flex-column">
+                                <small class="text-muted fw-bold text-uppercase">adidas</small>
+                                <h6 class="card-title text-truncate text-uppercase">samba lt women's sneakers - ftwr white</h6>
+                                <p class="card-text mb-1 small text-secondary">Wanita</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> White</p>
+                                <p class="card-text mb-2"><b>Rp. 2.200.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -252,294 +418,371 @@
                 <h3 id="terbaru" class="mb-3" style="font-family: sans-serif; scroll-margin-top: 140px;">TERBARU</h3>
                 <div class="row flex-nowrap overflow-auto pb-3 custom-scrollbar g-3">
                     
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Wanita/10-NIKE-F34KBNIK5-NIKII0569100-Beige.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">air jordan 1 lose women's basketball shoes - sail/iced carmine-olive aura-pearl white</h6>
+                                <p class="card-text mb-1 small text-secondary">Wanita</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Pearl White</p>
+                                <p class="card-text mb-2"><b>Rp. 1.939.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Wanita/11-NIKE-FFSSBNIK5-NIKFV1920401-Blue.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">air max muse women's sneakers shoes - hydrogen blue/hydrogen blue</h6>
+                                <p class="card-text mb-1 small text-secondary">Wanita</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Blue</p>
+                                <p class="card-text mb-2"><b>Rp. 2.379.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Wanita/12-NIKE-FFSSBNIK5-NIKFV1920006-Silver.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">air max muse women's sneakers shoes - metallic silver/metallic silver-linen</h6>
+                                <p class="card-text mb-1 small text-secondary">Wanita</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Silver</p>
+                                <p class="card-text mb-2"><b>Rp. 2.379.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Anak/11-NIKE-FFSSBNIK5-NIKIM6642500-Purple.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">kobe ix low em kids' grade school basketball shoes - purple dynasty/fierce purple</h6>
+                                <p class="card-text mb-1 small text-secondary">Anak-anak</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Purple</p>
+                                <p class="card-text mb-2"><b>Rp. 1.669.000</b></p>
+                                <a href="https://www.footlocker.id/kobe-ix-low-em-kids-grade-school-basketball-shoes-purple-dynasty-fierce-purple-23.html" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Anak/12-NIKE-F34KBNIK5-NIKIB7066001-Olive.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">air jordan 3 retro kids' grade school basketball shoes - olive grey/green abyss-khaki-sea glass</h6>
+                                <p class="card-text mb-1 small text-secondary">Anak-anak</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Olive</p>
+                                <p class="card-text mb-2"><b>Rp. 2.099.000</b></p>
+                                <a href="https://www.footlocker.id/air-jordan-3-retro-kids-grade-school-basketball-shoes-olive-grey-green-abyss-khaki-sea-glass-24.html" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Anak/13-NIKE-FFSSBNIK5-NIKIQ0098100-White.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">air max 90 kids' grade school sneakers shoes - off white/sonic yellow-dk smoke grey</h6>
+                                <p class="card-text mb-1 small text-secondary">Anak-anak</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Grey</p>
+                                <p class="card-text mb-2"><b>Rp. 1.529.000</b></p>
+                                <a href="https://www.footlocker.id/air-max-90-kids-grade-school-sneakers-shoes-off-white-sonic-yellow-dk-smoke-grey-4.html" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-NEW-BALANCE-FFSSBNEWA-NEWU530ESA-Silver.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">new balance</small>
+                                <h6 class="card-title text-truncate text-uppercase">530 unisex sneakers shoes - silver</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Grey</p>
+                                <p class="card-text mb-2 fs-6"><b class="text-danger">Rp. 1.189.300</b> <span class="text-decoration-line-through">Rp. 1.699.000 </span></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75806-White.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">adidas</small>
+                                <h6 class="card-title text-truncate text-uppercase">samba og men's sneaker shoes - ftwr white</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> White</p>
+                                <p class="card-text mb-2"><b>Rp. 2.200.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
-                            <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">NIKE</small>
-                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
-                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
-                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-primary mt-auto w-100">Lihat Detail</a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
         <!-- terbaru -->
 
-        <!-- banner -->
-        <div class="container-fluid px-0 mb-5 text-center">
-            <img src="/Assets/Small-Banners_ADIDAS_Desktop-.webp" class="img-fluid w-100" style="max-height: 150px; object-fit: cover;" alt="Promo Banner">
-        </div>
+        <!-- help -->
+        <section class="mb-1">
+            <div id="help" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#help" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#help" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/Assets/banner-small.png" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-block w-100 bg-light" style="min-height: 500px; height: auto; padding: 10px;">
+                            <div class="banner-container">
+                                
+                                <div class="left-section">
+                                    <div class="brand-title">KALAKAKI</div>
+                                    <h1>PANDUAN CARA PEMESANAN</h1>
+                                    
+                                    <ul class="steps-list">
+                                        <li class="step-item">
+                                            <div class="step-text">
+                                                <strong>1. PILIH MODEL ANDA</strong><br>
+                                            </div>
+                                        </li>
+                                        <li class="step-item">
+                                            <div class="step-text">
+                                                <strong>2. MASUK DETAIL & PILIH UKURAN</strong>
+                                            </div>
+                                        </li>
+                                        <li class="step-item">
+                                            <div class="step-text">
+                                                <strong>3. TAMBAHKAN KE KERANJANG BELANJA</strong>
+                                            </div>
+                                        </li>
+                                        <li class="step-item">
+                                            <div class="step-text">
+                                                <strong>4. LANJUTKAN KE PEMBAYARAN AMAN</strong>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
 
+                                <div class="right-section">
+                                    <p class="text-uppercase">siap untuk melangkah?</p>
+                                    <button class="btn-pesan">Pesan Sekarang</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#help" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#help" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
+        <!-- help -->
+
+        <!-- brand -->
         <section id="brand" class="container-fluid mb-5" style="max-width: 1200px;">
             <div class="row flex-nowrap overflow-auto custom-scrollbar g-3">
                 <div class="col-6 col-md-4 col-lg-2">
-                    <img src="/Assets/brand/vans_1100x473_3.webp" class="img-fluid w-100" alt="...">
+                    <img src="/Assets/brand/vans_1100x473_3.webp" class="img-fluid w-100" alt="vans">
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <img src="/Assets/brand/puma_1100x473_3.webp" class="img-fluid w-100" alt="...">
+                    <img src="/Assets/brand/puma_1100x473_3.webp" class="img-fluid w-100" alt="puma">
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <img src="/Assets/brand/adidas_1100x473_3.webp" class="img-fluid w-100" alt="...">
+                    <img src="/Assets/brand/adidas_1100x473_3.webp" class="img-fluid w-100" alt="adidas">
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <img src="/Assets/brand/converse_1100x473_3.webp" class="img-fluid w-100" alt="...">
+                    <img src="/Assets/brand/converse_1100x473_3.webp" class="img-fluid w-100" alt="converse">
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <img src="/Assets/brand/hoka_1100x473_6.webp" class="img-fluid w-100" alt="...">
+                    <img src="/Assets/brand/hoka_1100x473_6.webp" class="img-fluid w-100" alt="hoka">
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <img src="/Assets/brand/nike_1100x473_3.webp" class="img-fluid w-100" alt="...">
+                    <img src="/Assets/brand/nike_1100x473_3.webp" class="img-fluid w-100" alt="nike">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="/Assets/brand/jordan_1100x473_3.webp" class="img-fluid w-100" alt="jordan">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="/Assets/brand/newbalance_1100x473_8.webp" class="img-fluid w-100" alt="new balance">
                 </div>
             </div>
         </section>
-        <!-- banner -->
+        <!-- brand -->
 
         <!-- rekomendasi -->
-        <!-- terbaru -->
         <section class="container-fluid mb-5" style="max-width: 1200px;">
             <div class="border p-2">
                 <h3 id="terlaris" class="mb-3" style="font-family: sans-serif;">REKOMENDASI UNTUK ANDA</h3>
                 <div class="row flex-nowrap overflow-auto pb-3 custom-scrollbar g-3">
                     
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/X1-NEW-BALANCE-FFSSBNEWA-NEWM1000FLB-Red.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">new balance</small>
+                                <h6 class="card-title text-truncate text-uppercase">1000 men's sneakers shoes - red</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Red</p>
+                                <p class="card-text mb-2"><b>Rp. 2.599.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+                    
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/X3-NIKE-F34KBNIK5-NIKHV9921600-Red.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">Nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">g.t. cut 4 ep men's basketball shoes - university red/multi-color-black</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Red</p>
+                                <p class="card-text mb-2"><b>Rp. 3.049.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
+                    
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/X2-NIKE-F34KBNIK5-NIKIB6903800-Orange.webp" class="card-img-top" alt="New Balance">
                             <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
+                                <small class="text-muted fw-bold text-uppercase">Nike</small>
+                                <h6 class="card-title text-truncate text-uppercase">kd vi men's basketball shoes - laser orange/raspberry red-black</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Orange</p>
+                                <p class="card-text mb-2"><b>Rp. 2.099.000</b></p>
+                                <a href=" " class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
-                            <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
-                            <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
-                            <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
-                            <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/01-ADIDAS-FFSSBADI5-ADIB75807-Black.webp" class="card-img-top" alt="...">
-                            <div class="card-body border-top d-flex flex-column">
-                                <small class="text-muted fw-bold">ADIDAS</small>
-                                <h6 class="card-title text-truncate">Samba OG Women's Sneakers</h6>
-                                <p class="card-text mb-1 small text-secondary">Pink</p>
-                                <p class="card-text mb-2"><b>Rp. 2.000.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-dark mt-auto w-100">Buy</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 col-sm-6 col-md-4 col-lg-2">
-                        <div class="card h-100 shadow-sm border-0">
-                            <img src="/Assets/Pria/02-NIKE.webp" class="card-img-top" alt="...">
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-NIKE-FFSSBNIK5-NIK604133050-Black.webp" class="card-img-top" alt="Nike">
                             <div class="card-body border-top d-flex flex-column">
                                 <small class="text-muted fw-bold">NIKE</small>
-                                <h6 class="card-title text-truncate">Air Max Plus Men's</h6>
-                                <p class="card-text mb-1 small text-secondary">Black/Blue</p>
-                                <p class="card-text mb-2"><b>Rp. 2.489.000</b></p>
-                                <a href="#" class="btn btn-sm btn-outline-primary mt-auto w-100">Lihat Detail</a>
+                                <h6 class="card-title text-truncate">FX AIR MAX PLUS MEN'S SNEAKERS SHOES - BLACK</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Black</p>
+                                <p class="card-text mb-2"><b>Rp. 2.389.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/01-PUMA-FFSSEPMAA-PMA398846-02-Red.webp" class="card-img-top" alt="New Balance">
+                            <div class="card-body border-top d-flex flex-column">
+                                <small class="text-muted fw-bold text-uppercase">puma</small>
+                                <h6 class="card-title text-truncate text-uppercase">speedcat og unisex lifestyle shoes - red</h6>
+                                <p class="card-text mb-1 small text-secondary">Pria</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Red</p>
+                                <p class="card-text mb-2"><b>Rp. 1.899.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="card h-100 shadow-sm">
+                            <img src="/Assets/Pria/X4-NEW-BALANCE-FFSSBNEWA-NEWU200015V-Grey.webp" class="card-img-top" alt="New Balance">
+                            <div class="card-body border-top d-flex flex-column">
+                                <small class="text-muted fw-bold text-uppercase">new balance</small>
+                                <h6 class="card-title text-truncate text-uppercase">abzorb fx 2000 sneakers shoes - neptune grey / blue oyster</h6>
+                                <p class="card-text mb-1 small text-secondary">Unisex</p>
+                                <p class="card-text mb-1 small text-secondary"><b>Warna:</b> Blue Oyster</p>
+                                <p class="card-text mb-2"><b>Rp. 2.899.000</b></p>
+                                <a href="#" class="btn btn-sm btn-outline-dark w-100 mt-auto">Buy</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
         <!-- rekomendasi -->
 
-        <section class="py-4 bg-light mb-5">
+        <!-- box -->
+        <section class="py-5">
             <div class="container">
                 <div class="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-6 justify-content-center">
-                    
                     <div class="col">
                         <a href="#" class="text-decoration-none">
-                            <div class="bg-white p-3 d-flex flex-column align-items-center justify-content-center h-100 border rounded shadow-sm custom-card">
-                                <img src="/Assets/Icon/phone-mail.svg" alt="Kontak" class="mb-2" style="width: 32px; height: 32px;">
+                            <div class="bg-light p-4 d-flex flex-column align-items-center justify-content-center h-100 border-0 shadow-sm rounded">
+                                <img src="/Assets/Icon/mail.svg" alt="Kontak" class="mb-2" style="width: 32px; height: 32px;">
                                 <p class="text-dark mb-0 small fw-medium text-center">Kontak Kami</p>
                             </div>
                         </a>
                     </div>
-
                     <div class="col">
                         <a href="#" class="text-decoration-none">
-                            <div class="bg-white p-3 d-flex flex-column align-items-center justify-content-center h-100 border rounded shadow-sm custom-card">
+                            <div class="bg-light p-4 d-flex flex-column align-items-center justify-content-center h-100 border-0 shadow-sm rounded">
+                                <img src="/Assets/Icon/package.svg" alt="Status" class="mb-2" style="width: 32px; height: 32px;">
+                                <p class="text-dark mb-0 small fw-medium text-center">Status Pesanan</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none">
+                            <div class="bg-light p-4 d-flex flex-column align-items-center justify-content-center h-100 border-0 shadow-sm rounded">
                                 <img src="/Assets/Icon/truck.svg" alt="Pengiriman" class="mb-2" style="width: 32px; height: 32px;">
                                 <p class="text-dark mb-0 small fw-medium text-center">Pengiriman</p>
                             </div>
                         </a>
                     </div>
-                    
+                    <div class="col">
+                        <a href="#" class="text-decoration-none">
+                            <div class="bg-light p-4 d-flex flex-column align-items-center justify-content-center h-100 border-0 shadow-sm rounded">
+                                <img src="/Assets/Icon/shop.svg" alt="Lokasi" class="mb-2" style="width: 32px; height: 32px;">
+                                <p class="text-dark mb-0 small fw-medium text-center">Lokasi Toko</p>
+                            </div>
+                        </a>
                     </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none">
+                            <div class="bg-light p-4 d-flex flex-column align-items-center justify-content-center h-100 border-0 shadow-sm rounded">
+                                <img src="/Assets/Icon/repeat.svg" alt="Kembali" class="mb-2" style="width: 32px; height: 32px;">
+                                <p class="text-dark mb-0 small fw-medium text-center">Kembali</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-decoration-none">
+                            <div class="bg-light p-4 d-flex flex-column align-items-center justify-content-center h-100 border-0 shadow-sm rounded">
+                                <img src="/Assets/Icon/question-circle.svg" alt="Bantuan" class="mb-2" style="width: 32px; height: 32px;">
+                                <p class="text-dark mb-0 small fw-medium text-center">Bantuan</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
+        <!-- box -->
 
+        <!-- footer -->
         <section id="footer" class="bg-light pt-5 pb-3">
             <div class="container">
                 <div class="row gy-4">
@@ -591,6 +834,7 @@
                 </div>
             </nav>
         </section>
+        <!-- footer -->
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
